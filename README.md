@@ -7,13 +7,13 @@ Requirements: <a href="https://www.python.org/downloads/">Python 3</a>
 
 Clone the repository and install the requirements:
 ```
->pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 # Instructions
 You can run the script from the command line with:
 ```
->python ygoprodeckartdl.py [arguments]
+python ygoprodeckartdl.py [arguments]
 ``` 
 
 Command line arguments:
