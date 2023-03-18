@@ -18,15 +18,18 @@ You can run the script from the command line with:
 
 Command line arguments:
 ```
--full			Downloads the full card art into the \image_url folder.
--small			Downloads the thumbnail card art into the \image_url_small folder.
--cropped		Downloads the cropped card art into the \image_url_cropped folder.
--param			Enables a selective filter of cards to download. If not used, will default to downloading all available TCG cards.
--keyword		Creates a text file containing related keywords for every downloaded image.
+-full		Downloads the full card art into the \image_url folder.
+-small		Downloads the thumbnail card art into the \image_url_small folder.
+-cropped	Downloads the cropped card art into the \image_url_cropped folder.
+-param		Enables a selective filter of cards to download.
+-keyword	Creates a text file containing related keywords for every downloaded image.
 ```
 At least one of `-full`, `-small`, or `-cropped` arguments must be used, otherwise no cards will be downloaded.
 
+If `-param` is not used, the script will default to downloading all available TCG cards.
+
 If `-param` is used, you must enter your filter in JSON format when prompted by the script.
+
 For example, to download all TCG cards in the Blue-Eyes archetype, you would enter this filter:
 ```
 {"format": "tcg", "archetype": "Blue-Eyes"}
