@@ -22,7 +22,7 @@ Command line arguments:
 -small		Downloads the thumbnail card art into the \image_url_small folder.
 -cropped	Downloads the cropped card art into the \image_url_cropped folder.
 -param		Enables a selective filter of cards to download.
--keyword	Creates a text file containing related keywords for every downloaded image.
+-keyword	Creates a text file for every downloaded image containing related keywords.
 ```
 At least one of `-full`, `-small`, or `-cropped` arguments must be used, otherwise no cards will be downloaded.
 
