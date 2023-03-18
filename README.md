@@ -36,4 +36,4 @@ For example, to download all TCG cards in the Blue-Eyes archetype, you would ent
 ```
 Only cards that satisfy all parameters in the filter will be downloaded. For a list of parameters, see the official <a href="https://ygoprodeck.com/api-guide/">YGOPRODeck api guide</a>.
 
-If the script fails to download any images (for example, the missing cropped art of <a href="https://ygoprodeck.com/card/sanctity-of-dragon-8825">Sanctity of Dragon</a>, that card will be listed in "failed_downloads.txt".
+If the script fails to download any images (for example, the missing cropped art of <a href="https://ygoprodeck.com/card/sanctity-of-dragon-8825">Sanctity of Dragon</a>), that card will be listed in "failed_downloads.txt".
