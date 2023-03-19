@@ -101,37 +101,37 @@ if response.status_code == 200:
             sort_sets()
         
         #create output folders if it does not already exist
-        if "-full" in sys.argv and not os.path.exists("image_url"):
-            os.mkdir("image_url")
-        if "-small" in sys.argv and not os.path.exists("image_url_small"):
-            os.mkdir("image_url_small")
-        if "-cropped" in sys.argv and not os.path.exists("image_url_cropped"):
-            os.mkdir("image_url_cropped")
+        if "-full" in sys.argv and not os.path.exists("full"):
+            os.mkdir("full")
+        if "-small" in sys.argv and not os.path.exists("small"):
+            os.mkdir("small")
+        if "-cropped" in sys.argv and not os.path.exists("cropped"):
+            os.mkdir("cropped")
 
         #download every received card to appropriate folder
         with open("failed_downloads.txt", 'w', encoding="utf-8") as g:
             fail_counter = 0
             for card in tqdm(response.json()["data"]):
                 for card_image in card["card_images"]:
-                    try:
+                    #try:
                         if "-full" in sys.argv:
                             sleep(1 / requests_per_second)
-                            urllib.request.urlretrieve(str(card_image["image_url"]), "image_url/" + str(card_image["id"]) + ".jpg")
+                            urllib.request.urlretrieve(str(card_image["image_url"]), "full/" + str(card_image["id"]) + ".jpg")
                             if "-keyword" in sys.argv:
-                                keyword_file("image_url", card, card_image)
+                                keyword_file("full", card, card_image)
                         if "-small" in sys.argv:
                             sleep(1 / requests_per_second)
-                            urllib.request.urlretrieve(str(card_image["image_url_small"]), "image_url_small/" + str(card_image["id"]) + ".jpg")
+                            urllib.request.urlretrieve(str(card_image["image_url_small"]), "small/" + str(card_image["id"]) + ".jpg")
                             if "-keyword" in sys.argv:
-                                keyword_file("image_url_small", card, card_image)
+                                keyword_file("small", card, card_image)
                         if "-cropped" in sys.argv:
                             sleep(1 / requests_per_second)
-                            urllib.request.urlretrieve(str(card_image["image_url_cropped"]), "image_url_cropped/" + str(card_image["id"]) + ".jpg")
+                            urllib.request.urlretrieve(str(card_image["image_url_cropped"]), "cropped/" + str(card_image["id"]) + ".jpg")
                             if "-keyword" in sys.argv:
-                                keyword_file("image_url_cropped", card, card_image)
-                    except:
-                         g.write(str(card["name"]) + " - " + str(card_image["id"]) + "\n")
-                         fail_counter += 1
+                                keyword_file("cropped", card, card_image)
+                    #except:
+                         #g.write(str(card["name"]) + " - " + str(card_image["id"]) + "\n")
+                         #fail_counter += 1
         g.close()
         print("\nDone. Failed downloads: " + str(fail_counter) + ".")
         if fail_counter > 0:

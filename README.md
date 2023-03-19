@@ -18,9 +18,9 @@ python ygoprodeckartdl.py [arguments]
 
 Command line arguments:
 ```
--full		Downloads the full card art into the \image_url folder.
--small		Downloads the thumbnail card art into the \image_url_small folder.
--cropped	Downloads the cropped card art into the \image_url_cropped folder.
+-full		Downloads the full card art into the \full folder.
+-small		Downloads the thumbnail card art into the \small folder.
+-cropped	Downloads the cropped card art into the \cropped folder.
 -param		Enables a selective filter of cards to download.
 -keyword	Creates a text file for every downloaded image containing related keywords.
 ```
