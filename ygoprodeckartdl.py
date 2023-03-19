@@ -113,7 +113,7 @@ if response.status_code == 200:
             fail_counter = 0
             for card in tqdm(response.json()["data"]):
                 for card_image in card["card_images"]:
-                    #try:
+                    try:
                         if "-full" in sys.argv:
                             sleep(1 / requests_per_second)
                             urllib.request.urlretrieve(str(card_image["image_url"]), "full/" + str(card_image["id"]) + ".jpg")
@@ -129,9 +129,9 @@ if response.status_code == 200:
                             urllib.request.urlretrieve(str(card_image["image_url_cropped"]), "cropped/" + str(card_image["id"]) + ".jpg")
                             if "-keyword" in sys.argv:
                                 keyword_file("cropped", card, card_image)
-                    #except:
-                         #g.write(str(card["name"]) + " - " + str(card_image["id"]) + "\n")
-                         #fail_counter += 1
+                    except:
+                         g.write(str(card["name"]) + " - " + str(card_image["id"]) + "\n")
+                         fail_counter += 1
         g.close()
         print("\nDone. Failed downloads: " + str(fail_counter) + ".")
         if fail_counter > 0:
